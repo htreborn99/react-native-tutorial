@@ -8,35 +8,41 @@
 
 // Imported Libraries 
 import React from 'react';
-import {store} from '../src/Redux/store';
-import { Provider } from 'react-redux';
+import store from "./Redux/store"
+import {Provider} from "react-redux"
 import { SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,Section} from 'react-native';
 import {Colors,DebugInstructions,Header,LearnMoreLinks,ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {useSelector} from "react-redux";
+
 
 // Import External Molecules
-import Home from "./Molecule/home"
-import Profile from "./Molecule/profile"
+// import Home from "./Molecule/home"
+// import Profile from "./Molecule/profile"
+// import Profilesetting from './Molecule/profilesetting';
+// import Inventory from './Molecule/inventory';
+import Routing from "./Molecule/routing"
+// import { Drawer } from 'react-native-paper';
 
-
-const Stack = createStackNavigator()
-
-function App() {
+export default function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          
-          <Stack.Screen name="Screen_A" component={Home}></Stack.Screen>
-          <Stack.Screen name="Screen_B" component={Profile}></Stack.Screen>
-        </Stack.Navigator>
-      </NavigationContainer>
+    <Provider store={store}> 
+      <Routing /> 
     </Provider>
-  );
-};
+  )
+}
+// function App () {
 
-export default App;
+//   return (
+//     <Provider store={store}> 
+//       <Routing /> 
+//     </Provider>
+//   )
+// }
 
+
+// export default App;
 
 
